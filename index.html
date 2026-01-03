@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Çok Çok Özel Bir Not</title>
+
+  <!-- Romantik el yazısı fontu -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(180deg, #ffd6e8, #ffeef6);
+      font-family: 'Dancing Script', cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .screen {
+      display: none;
+      text-align: center;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 20px;
+      border: none;
+      background: #ff7aa2;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff5f91;
+    }
+
+    /* NOT KUTUSU */
+    .note {
+      background: #ffe4ef;
+      padding: 40px;
+      width: 70%;
+      max-width: 700px;
+      border-radius: 25px;
+      text-align: left;
+      font-size: 26px;
+      line-height: 1.6;
+      opacity: 0;
+      animation: slowOpen 2s ease forwards;
+    }
+
+    .note p {
+      margin-top: 20px;
+      text-indent: 30px; /* gerçek mektup gibi */
+    }
+
+    .note img {
+      margin-top: 30px;
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    /* Typewriter */
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #ff7aa2;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards;
+    }
+
+    /* Pembe duman */
+    .smoke {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 182, 213, 0.4);
+      filter: blur(60px);
+      border-radius: 50%;
+      animation: float 12s infinite alternate ease-in-out;
+    }
+
+    .smoke.one { top: 10%; left: 15%; }
+    .smoke.two { bottom: 10%; right: 20%; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slowOpen {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-40px); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Duman -->
+  <div class="smoke one"></div>
+  <div class="smoke two"></div>
+
+  <!-- AŞAMA 1 -->
+  <div class="screen active" id="step1">
+    <h2>İlk ipucu 🌸</h2>
+    <p>Tanışmamızın ay ve günü</p>
+    <input id="pass1" type="password" />
+    <br>
+    <button onclick="check1()">Devam</button>
+  </div>
+
+  <!-- AŞAMA 2 -->
+  <div class="screen" id="step2">
+    <h2>İkinci ipucu ✨</h2>
+    <p>O yıl…</p>
+    <input id="pass2" type="password" />
+    <br>
+    <button onclick="check2()">Devam</button>
+  </div>
+
+  <!-- AŞAMA 3 -->
+  <div class="screen" id="step3">
+    <h2>Son adım 🩷</h2>
+    <p>Her şeyi birleştir</p>
+    <input id="pass3" type="password" />
+    <br>
+    <button onclick="check3()">Aç</button>
+  </div>
+
+  <!-- NOT -->
+  <div class="screen" id="noteScreen">
+    <div class="note">
+      <div class="typewriter">Sevgilim Deniz,</div>
+
+      <p>
+        Bu notu okuyorsan, her adımı hatırladığın için buradasın.
+        Hayatıma girdiğin günden beri her şey daha gerçek,
+        daha sıcak ve daha cesur.
+      </p>
+
+      <p>
+        Seninle birlikte büyümeyi,
+        zor şeylerin altından birlikte kalkmayı
+        ve her halini sevmeyi seçiyorum.
+      </p>
+
+      <p>
+        İyi ki varsın.
+        İyi ki benim sevgilimsin.
+      </p>
+
+      <img src="resimadi.jpg" alt="biz">
+    </div>
+  </div>
+
+  <script>
+    function switchScreen(from, to) {
+      document.getElementById(from).classList.remove("active");
+      document.getElementById(to).classList.add("active");
+    }
+
+    function check1() {
+      if (document.getElementById("pass1").value === "0305") {
+        switchScreen("step1", "step2");
+      } else {
+        alert("Bir daha düşün 💗");
+      }
+    }
+
+    function check2() {
+      if (document.getElementById("pass2").value === "2023") {
+        switchScreen("step2", "step3");
+      } else {
+        alert("Hatırlıyorsun, biliyorum 🌸");
+      }
+    }
+
+    function check3() {
+      if (document.getElementById("pass3").value === "03052023") {
+        switchScreen("step3", "noteScreen");
+      } else {
+        alert("Son adım 💭");
+      }
+    }
+  </script>
+
+</body>
+</html>
