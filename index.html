@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Çok çok gizli not</title>
+  <title>Çok Çok Özel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -11,42 +11,76 @@
       min-height: 100vh;
       background: #fff0f5;
       font-family: "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* Sayfayı ortalamak için */
+    /* Şifre ekranı */
+    .lock {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 360px;
+      width: 90%;
+    }
+
+    .lock input {
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    .lock button {
+      margin-top: 16px;
+      padding: 10px;
+      width: 100%;
+      background: #e8a1b8;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .error {
+      color: #c0392b;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* Not alanı */
     .wrapper {
-      display: flex;
+      display: none;
+      width: 100%;
       justify-content: center;
       padding: 60px 16px;
     }
 
-    /* Kağıt görünümü */
     .paper {
       width: 100%;
       max-width: 700px;
-      background-image: url("paper.jpg"); /* kağıt görselinin adı */
+      background-image: url("paper.jpg");
       background-repeat: repeat-y;
       background-size: 100% auto;
-
       padding: 60px 50px;
       box-shadow:
         0 10px 30px rgba(0,0,0,0.15),
         inset 0 0 30px rgba(0,0,0,0.05);
-
       border-radius: 6px;
     }
 
-    /* Metin */
     .paper p {
-      font-size: 15px;           /* daha küçük font */
-      line-height: 1.9;          /* mektup hissi */
+      font-size: 15px;
+      line-height: 1.9;
       color: #3b2f2f;
       margin: 0 0 28px 0;
-      text-align: left;          /* satır başı */
-      text-indent: 0;
+      text-align: left;
     }
 
-    /* Mobil için biraz daha küçült */
     @media (max-width: 600px) {
       .paper {
         padding: 40px 26px;
@@ -54,14 +88,24 @@
 
       .paper p {
         font-size: 14px;
-        line-height: 1.8;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrapper">
+
+  <!-- Şifre ekranı -->
+  <div class="lock" id="lock">
+    <h3>Çok çok gizli bir not olduğu için elbette şifresi olacaktı 😙</h3>
+    <p>Bir tarih bu. Evet oldukça basit, çok düşünmene gerek yok...</p>
+    <input type="password" id="password" placeholder="GG.AA.YYYY">
+    <button onclick="checkPassword()">Aç</button>
+    <div class="error" id="error">Gerçekten mi ?? 🙄</div>
+  </div>
+
+  <!-- Not -->
+  <div class="wrapper" id="note">
     <div class="paper">
 
       <p>
@@ -154,5 +198,20 @@ Doğum günün kutlu olsun sevgilim. İyi ki doğmuşsun, iyi ki benimlesin. Bun
       </p>
     </div>
   </div>
+
+  <script>
+    function checkPassword() {
+      const correct = "03.05.2023";
+      const input = document.getElementById("password").value;
+
+      if (input === correct) {
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("note").style.display = "flex";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+  </script>
+
 </body>
 </html>
