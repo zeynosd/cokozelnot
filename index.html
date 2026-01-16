@@ -1,98 +1,103 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Çok Çok Özel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Çok çok gizli not</title>
 
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       min-height: 100vh;
-      background: #fff0f5;
+      background: #fdecef;
       font-family: "Times New Roman", serif;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    /* Şifre ekranı */
-    .lock {
-      background: white;
-      padding: 32px;
+    /* 🔒 ŞİFRE EKRANI */
+    .lock-screen {
+      background: #fff;
+      padding: 32px 24px;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       text-align: center;
-      max-width: 360px;
+      max-width: 320px;
       width: 90%;
     }
 
-    .lock input {
-      padding: 10px;
-      width: 100%;
-      font-size: 16px;
-      margin-top: 12px;
+    .lock-screen h2 {
+      margin-bottom: 16px;
+      font-weight: normal;
     }
 
-    .lock button {
-      margin-top: 16px;
-      padding: 10px;
+    .lock-screen input {
       width: 100%;
-      background: #e8a1b8;
-      border: none;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 12px;
       border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .lock-screen button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #f4a3b5;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
     }
 
     .error {
       color: #c0392b;
-      margin-top: 10px;
+      font-size: 13px;
+      margin-top: 8px;
       display: none;
     }
 
-    /* Not alanı */
-    .wrapper {
-  display: none;
-  width: 100%;
-  padding: 60px 16px;
-
-  display: flex;
-  justify-content: center; /* yatay ortalama */
+    /* 📄 NOT ALANI */
+    .note-wrapper {
+      display: none;
+      width: 100%;
+      padding: 40px 16px; /* SAĞ–SOL BOŞLUK */
+      display: flex;
+      justify-content: center;
     }
-    
+
     .paper {
-  max-width: 700px;
-  margin: 0 auto;
-  background-image: url("paper.jpg");
-  background-repeat: repeat-y;
-  background-size: 100% 32px;
+      background-image: url("paper.jpg"); /* 👈 KAĞIT GÖRSELİ */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
 
-  font-family: "Times New Roman", serif;
-  font-size: 14px;
-  line-height: 32px;
+      max-width: 820px;
+      width: 100%;
+      padding: 56px 48px;
+      border-radius: 8px;
 
-  padding: 58px 50px 60px;
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.15),
-    inset 0 0 30px rgba(0,0,0,0.05);
+      font-size: 15px;
+      line-height: 1.8;
+      color: #2c2c2c;
     }
 
     .paper p {
-      font-size: 15px;
-      line-height: 1.9;
-      color: #3b2f2f;
-      margin: 0 0 28px 0;
-      text-align: left;
+      margin-bottom: 20px;
+      text-indent: 0;
     }
 
+    /* 📱 MOBİL İNCE AYAR */
     @media (max-width: 600px) {
       .paper {
-        padding: 40px 26px;
-      }
-
-      .paper p {
+        padding: 40px 24px;
         font-size: 14px;
       }
     }
@@ -101,19 +106,18 @@
 
 <body>
 
-  <!-- Şifre ekranı -->
-  <div class="lock" id="lock">
-    <h3>Çok çok gizli bir not olduğu için elbette şifresi olacaktı 😙</h3>
-    <p>Bir tarih bu. Evet oldukça basit, çok düşünmene gerek yok...</p>
-    <input type="password" id="password" placeholder="GG.AA.YYYY">
+  <!-- 🔒 ŞİFRE EKRANI -->
+  <div class="lock-screen" id="lockScreen">
+    <h2>Çok çok gizli bir not olduğu için elbette şifresi olacaktı 😙</h2>
+    <h2> İpucu: Bir tarih bu. Evet oldukça basit, çok düşünmene gerek yok...</h2>
+    <input type="password" id="password" placeholder="Şifreyi gir" />
     <button onclick="checkPassword()">Aç</button>
-    <div class="error" id="error">Gerçekten mi ?? 🙄</div>
+    <div class="error" id="error">Gerçekten mi?? 🙄</div>
   </div>
 
-  <!-- Not -->
-  <div class="wrapper" id="note">
+  <!-- 📄 NOT -->
+  <div class="note-wrapper" id="noteWrapper">
     <div class="paper">
-
       <p>
 Hayatımın anlamı, biricik sevgilime;
       </p>
@@ -199,22 +203,22 @@ Doğum günün kutlu olsun sevgilim. İyi ki doğmuşsun, iyi ki benimlesin. Bun
       <p>
                                                       — Seni sonsuz seven sevgilin.   
       </p>
-      <p>
-        https://open.spotify.com/playlist/1lC3oWmSeq442CouFSLPYF?si=FbeKI7PARVe4obCOpbJ2rA&pt=b99af1785ef6a4f3e6ae4c370fe47b00&pi=e5T098vFS4OpB
-      </p>
+
     </div>
   </div>
 
   <script>
-    function checkPassword() {
-      const correct = "03.05.2023";
-      const input = document.getElementById("password").value;
+    const correctPassword = "03.05.2023"; // 👈 ŞİFRENİ BURAYA YAZ
 
-      if (input === correct) {
-        document.getElementById("lock").style.display = "none";
-        document.getElementById("note").style.display = "flex";
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (input === correctPassword) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("noteWrapper").style.display = "flex";
       } else {
-        document.getElementById("error").style.display = "block";
+        error.style.display = "block";
       }
     }
   </script>
