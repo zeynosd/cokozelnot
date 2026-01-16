@@ -108,17 +108,6 @@ p {
 @keyframes blink {
   50% { border-color: transparent; }
 }
-
-.photo {
-  margin-top: 25px;
-  text-align: center;
-}
-
-.photo img {
-  max-width: 100%;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-}
 </style>
 </head>
 
@@ -130,31 +119,13 @@ p {
 <div class="smoke pink three"></div>
 <div class="smoke blue four"></div>
 
-<!-- ADIM 1 -->
-<div id="step1" class="screen active">
-  <h2>Birinci soru 💭</h2>
-  <p>Tanıştığımız günün ayı?</p>
-  <input id="p1" placeholder="AA">
+<!-- ŞİFRE -->
+<div id="lock" class="screen active">
+  <h2>Bir soru var 💌</h2>
+  <p>Tanıştığımız günün tarihi?</p>
+  <input id="password" placeholder="GG.AA.YYYY">
   <br>
-  <button onclick="check1()">Devam</button>
-</div>
-
-<!-- ADIM 2 -->
-<div id="step2" class="screen">
-  <h2>İkinci soru 🌷</h2>
-  <p>Tanıştığımız günün yılı?</p>
-  <input id="p2" placeholder="YYYY">
-  <br>
-  <button onclick="check2()">Devam</button>
-</div>
-
-<!-- ADIM 3 -->
-<div id="step3" class="screen">
-  <h2>Son soru 💌</h2>
-  <p>Tanıştığımız tam tarih?</p>
-  <input id="p3" placeholder="GG.AA.YYYY">
-  <br>
-  <button onclick="check3()">Aç</button>
+  <button onclick="check()">Aç</button>
 </div>
 
 <!-- NOT -->
@@ -166,33 +137,17 @@ p {
   <p class="typewriter" data-text="Hayat bazen karmaşık ama seninle birlikteyken her şey daha anlamlı geliyor. Tanıştığımız günden beri içimde çok şey değişti."></p>
 
   <p class="typewriter" data-text="İyi ki varsın. İyi ki benimlesin."></p>
-
-  <div class="photo">
-    <img src="resimadi.webp">
-  </div>
 </div>
 
 <script>
-function switchTo(from, to) {
-  document.getElementById(from).classList.remove("active");
-  document.getElementById(to).classList.add("active");
-}
-
-function check1() {
-  if (p1.value === "05") switchTo("step1", "step2");
-  else alert("Bir daha düşün 💗");
-}
-
-function check2() {
-  if (p2.value === "2023") switchTo("step2", "step3");
-  else alert("Hatırlıyorsun 🌸");
-}
-
-function check3() {
-  if (p3.value === "03.05.2023") {
-    switchTo("step3", "note");
+function check() {
+  if (password.value === "03.05.2023") {
+    document.getElementById("lock").classList.remove("active");
+    document.getElementById("note").classList.add("active");
     startTyping();
-  } else alert("Son adım 💭");
+  } else {
+    alert("Bir daha düşün 💭");
+  }
 }
 
 function startTyping() {
