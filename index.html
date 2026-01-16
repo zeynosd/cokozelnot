@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Sana Özel</title>
+<title>Çok çok gizli not</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -17,34 +17,48 @@ body {
   overflow: hidden;
 }
 
-/* DUMANLAR */
+/* DUMAN */
 .smoke {
   position: absolute;
   width: 260px;
   height: 260px;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.5;
-  animation: float 25s infinite alternate ease-in-out;
+  opacity: 0.45;
+  animation: float 30s infinite alternate ease-in-out;
 }
 
 .pink { background: rgba(255, 170, 200, 0.6); }
 .blue { background: rgba(170, 200, 255, 0.6); }
 
 .one { top: 10%; left: 10%; }
-.two { bottom: 15%; right: 15%; animation-duration: 30s; }
-.three { top: 45%; right: 10%; animation-duration: 35s; }
-.four { bottom: 35%; left: 20%; animation-duration: 40s; }
+.two { bottom: 15%; right: 15%; }
+.three { top: 45%; right: 10%; }
+.four { bottom: 35%; left: 20%; }
 
 @keyframes float {
   from { transform: translate(0, 0); }
   to { transform: translate(60px, -60px); }
 }
 
-/* EKRANLAR */
+/* EKRAN */
 .screen {
   display: none;
   z-index: 2;
+}
+
+.screen.active {
+  display: block;
+  animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ŞİFRE */
+#lock {
   background: #ffe6ee;
   padding: 30px;
   border-radius: 22px;
@@ -52,16 +66,6 @@ body {
   width: 90%;
   max-width: 420px;
   text-align: center;
-}
-
-.screen.active {
-  display: block;
-  animation: fadeIn 1.8s forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 input {
@@ -82,38 +86,38 @@ button {
   font-size: 1em;
 }
 
-/* NOT */
+/* NOT KAĞIDI */
 #note {
-  text-align: left;
+  background-image: url("paper.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 90%;
+  max-width: 520px;
+  padding: 60px 45px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  border-radius: 6px;
 }
 
 #note h1 {
   text-align: center;
-  color: #c94a7c;
+  margin-bottom: 28px;
+  color: #5a2a3c;
+  font-size: 1.4em;
 }
 
-p {
-  font-size: 1.2em;
-  line-height: 1.6;
-  text-indent: 30px;
-  margin-bottom: 16px;
-}
-
-/* TYPEWRITER */
-.typewriter span {
-  border-right: 2px solid #c94a7c;
-  animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
+#note p {
+  font-size: 0.95em; /* KÜÇÜK FONT */
+  line-height: 1.9;
+  text-indent: 32px;
+  margin-bottom: 18px;
+  color: #3a2a2a;
 }
 </style>
 </head>
 
 <body>
 
-<!-- DUMANLAR -->
+<!-- DUMAN -->
 <div class="smoke pink one"></div>
 <div class="smoke blue two"></div>
 <div class="smoke pink three"></div>
@@ -122,7 +126,7 @@ p {
 <!-- ŞİFRE -->
 <div id="lock" class="screen active">
   <h2>Çok çok gizli bir not olduğu için elbette bir şifresi olacaktı 😙</h2>
-  <p>Tanıştığımız günün tarihi? 😋</p>
+  <p>İpucu: Bu bir tarih. Evet oldukça basit, çok düşünmene gerek yok...</p>
   <input id="password" placeholder="GG.AA.YYYY">
   <br>
   <button onclick="check()">Aç</button>
@@ -130,68 +134,65 @@ p {
 
 <!-- NOT -->
 <div id="note" class="screen">
-  <h1>Hayatımın ankamı, biricik sevgilime;</h1>
+  <h1>Hayatımın anlamı, biricik sevgilime;</h1>
 
-  <p class="typewriter" data-text= "Hayatımın anlamı, biricik sevgilime;
+  <p>
+ Sana çok şey anlatmak, çok şey göstermek istiyorum ama tam anlamıyla yapamam çünkü ben bile bilmiyorum bu neyin nesi. Bu hisler, bu düşünceler, bu aşk. Ne ölçülebilir, ne de tarif edilebilir. Kelimelerin bile yetmeyeceğini biliyorum buna. Ama ben yine de deneyeceğim en iyi bildiğim şeyi yapmayı.
 
-Sana çok şey anlatmak, çok şey göstermek istiyorum ama tam anlamıyla yapamam çünkü ben bile bilmiyorum bu neyin nesi. Bu hisler, bu düşünceler, bu aşk. Ne ölçülebilir, ne de tarif edilebilir. Kelimelerin bile yetmeyeceğini biliyorum buna. Ama ben yine de deneyeceğim en iyi bildiğim şeyi yapmayı.
+ Hayatımda öyle bir etkin var ki, sanki seninle tanışmadan önce başka birisiydim, şimdi başka birisiyim. Hayır, beni değiştirmedin ama bana çok şey kattın. Sayamayacağım kadar çok. 
 
-Hayatımda öyle bir etkin var ki, sanki seninle tanışmadan önce başka birisiydim, şimdi başka birisiyim. Hayır, beni değiştirmedin ama bana çok şey kattın. Sayamayacağım kadar çok. 
+ Ben seninle öğrendim. Sevmeyi seninle öğrendim. Hissetmeyi seninle öğrendim. Üzülmeyi seninle öğrendim. Bir insana duyulabilecek hem en çirkin hem en güzel hisleri seninle öğrendim. Bir insanın hissettirebileceği hem en kötü hem en iyi hisleri seninle öğrendim. Aşkı seninle öğrendim.
 
-Ben seninle öğrendim. Sevmeyi seninle öğrendim. Hissetmeyi seninle öğrendim. Üzülmeyi seninle öğrendim. Bir insana duyulabilecek hem en çirkin hem en güzel hisleri seninle öğrendim. Bir insanın hissettirebileceği hem en kötü hem en iyi hisleri seninle öğrendim. Aşkı seninle öğrendim.
+ Şimdi de sevilmeyi seninle öğreniyorum. 
 
-Şimdi de sevilmeyi seninle öğreniyorum. 
+ Bundan önce, her şey karşılıksız sanarken, bütün bu öğretilerin ve bu aşkın yükü beni yavaş yavaş eziyordu sanki. 
 
-Bundan önce, her şey karşılıksız sanarken, bütün bu öğretilerin ve bu aşkın yükü beni yavaş yavaş eziyordu sanki. 
+ Aslında başlarda mükemmeldi her şey. Evet seni seviyordum, bunu kabul etmem yarım yılımı almış olsa da ettim ve seviyordum. Senin ise beni sevdiğine dair bir inancım yoktu. Olsun, sorun değil, diyordum kendi kendime. Yeter ki hep onun yanında olayım. Başka bir şey istemiyorum. 
 
-Aslında başlarda mükemmeldi her şey. Evet seni seviyordum, bunu kabul etmem yarım yılımı almış olsa da ettim ve seviyordum. Senin ise beni sevdiğine dair bir inancım yoktu. Olsun, sorun değil, diyordum kendi kendime. Yeter ki hep onun yanında olayım. Başka bir şey istemiyorum. 
+ Ama öyle olmuyormuş. Arzular... Bunlar insanı yiyip bitiriyormuş. Her geçen günde, her geçen saatte duyguların ağır ağır daha da büyüyüp, seni ve hayatını sarıp sarmalıyormuş. Arzulamaya başlıyormuşsun her şeyi. Ona söylemeyi, ona bakmayı, ona dokunmayı, onunla uyumayı, onu öpmeyi istiyormuşsun. O kişiyi istiyormuşsun. Her şeyiyle.
 
-Ama öyle olmuyormuş. Arzular... Bunlar insanı yiyip bitiriyormuş. Her geçen günde, her geçen saatte duyguların ağır ağır daha da büyüyüp, seni ve hayatını sarıp sarmalıyormuş. Arzulamaya 
-başlıyormuşsun her şeyi. Ona söylemeyi, ona 
-bakmayı, ona dokunmayı, onunla uyumayı, onu öpmeyi istiyormuşsun. O kişiyi istiyormuşsun. Her şeyiyle.
+ Tam seni böyle istemeye başladığımda korkunçlaştı her şey. Bir kabus. En büyük korkum. Seni kaybetme korkusu.
 
-Tam seni böyle istemeye başladığımda korkunçlaştı her şey. Bir kabus. En büyük korkum. Seni kaybetme korkusu.
+ Benden uzaklaştığını hissettiğim her gün bu korku büyüdü, büyüdü ve büyüdü. Bir şeyleri düzeltebilmek için düşünmediğim, çabalamadığım tek bir an bile yoktu. Sanki hayatım buna bağlıymış gibi savaşıyordum. Öyle hissediyordum. Hayatım buna bağlıydı. O kadar çok sevmiştim ki, seni sevmeyi bırakma fikrinden nefret ediyordum. Ölüm gibiydi bu. Hayatın sonuydu. Seni sevmeyi seviyordum. Senden vazgeçip de hayatıma başka birisini aldığım bir senaryoyu düşlediğimde midem bulanıyordu. Başka hiç kimseyi istemiyordum. Sadece seni istiyordum. Seni sevmeyi istiyordum. 
 
-Benden uzaklaştığını hissettiğim her gün bu korku büyüdü, büyüdü ve büyüdü. Bir şeyleri düzeltebilmek için düşünmediğim, çabalamadığım tek bir an bile yoktu. Sanki hayatım buna bağlıymış gibi savaşıyordum. Öyle hissediyordum. Hayatım buna bağlıydı. O kadar çok sevmiştim ki, seni sevmeyi bırakma fikrinden nefret ediyordum. Ölüm gibiydi bu. Hayatın sonuydu. Seni sevmeyi seviyordum. Senden vazgeçip de hayatıma başka birisini aldığım bir senaryoyu düşlediğimde midem bulanıyordu. Başka hiç kimseyi istemiyordum. Sadece seni istiyordum. Seni sevmeyi istiyordum. 
+ Ama gerçekler daha güçlüydü bütün bunlardan. Beni senden vazgeçmek zorunda bıraktın bir noktada. En kötüsü buydu. Bir seçim yapmak değil de, artık başka bir seçeneğin kalmadığını anlayarak vazgeçmek. Vazgeçtim.
 
-Ama gerçekler daha güçlüydü bütün bunlardan. Beni senden vazgeçmek zorunda bıraktın bir noktada. En kötüsü buydu. Bir seçim yapmak değil de, artık başka bir seçeneğin kalmadığını anlayarak vazgeçmek. Vazgeçtim.
+ Mutlu olmaya çalışıyordum. İyileşmeye, seni unutmaya çalışıyordum. Yeni bir hayata atıldım, yeni bir beni de tanıdım bu hayatta. Yenilikler daha kolay unutturdu bazı şeyleri.
 
-Mutlu olmaya çalışıyordum. İyileşmeye, seni unutmaya çalışıyordum. Yeni bir hayata atıldım, yeni bir beni de tanıdım bu hayatta. Yenilikler daha kolay unutturdu bazı şeyleri.
+ Başardığımı düşünüyordum. Başarmak zorundaydım çünkü ben kendimi bildim bileli mutsuz bir insan olmamıştım. Sanki mutsuz olamazdım. Gidenin arkasından yas tutamazdım. Bana yakışmazdı bu. Olur da böyle bir karamsarlığa düşersem her şey biterdi sanki.
 
-Başardığımı düşünüyordum. Başarmak zorundaydım çünkü ben kendimi bildim bileli mutsuz bir insan olmamıştım. Sanki mutsuz olamazdım. Gidenin arkasından yas tutamazdım. Bana yakışmazdı bu. Olur da böyle bir karamsarlığa düşersem her şey biterdi sanki.
+ Bu yüzden her şeyi zihnimin gizli yerlerine sakladım. Kaçtım onlardan. Senden kaçtım. Yokmuşsun, hiç olmamışsın gibi davrandım.
 
-Bu yüzden her şeyi zihnimin gizli yerlerine sakladım. Kaçtım onlardan. Senden kaçtım. Yokmuşsun, hiç olmamışsın gibi davrandım.
+ Ama vardın. Hiçbir zaman, hiçbir yere gitmedin.
 
-Ama vardın. Hiçbir zaman, hiçbir yere gitmedin.
+ İnsanları sana benzetiyordum, sanki bir anda karşıma çıkacakmışsın gibi korkuyordum. Seni görmeyi asla istemiyordum ama bir yandan da çok istiyordum. Sonra, durup dururken aklıma geliyordun. Bir anda beliriveriyordun. Seninle ilgili bir şey görsem, duysam, tanısam, kalbimin acıdığını hissediyordum. Çünkü sen hâlâ oradaydın ama ben kendime bunu itiraf edemiyordum. 
 
-İnsanları sana benzetiyordum, sanki bir anda karşıma çıkacakmışsın gibi korkuyordum. Seni görmeyi asla istemiyordum ama bir yandan da çok istiyordum. Sonra, durup dururken aklıma geliyordun. Bir anda beliriveriyordun. Seninle ilgili bir şey görsem, duysam, tanısam, kalbimin acıdığını hissediyordum. Çünkü sen hâlâ oradaydın ama ben kendime bunu itiraf edemiyordum. 
+ "Ben ondan başkasını sevemeyeceğim." Kendimi bu cümleyi kurarken buldum bir gün. Unutmamıştım. Unutamıyordum. Ve çok, çok uzun bir süre de unutamayacaktım. 
 
-"Ben ondan başkasını sevemeyeceğim." Kendimi bu cümleyi kurarken buldum bir gün. Unutmamıştım. Unutamıyordum. Ve çok, çok uzun bir süre de unutamayacaktım. 
+ Ama zorundaydım. O kadar kararlıydım ki seni unutmaya. Benim için bitmiştin. Evet seni silememiştim ama bittiğinden emindim. Sonu gelmişti bu hikâyenin ve ne olursa olsun devam etmeyecekti. Çünkü beni böyle umutsuzluğa sürükleyen birisi artık hiçbir şeyi hak etmezdi. Ne olursa olsun.
 
-Ama zorundaydım. O kadar kararlıydım ki seni unutmaya. Benim için bitmiştin. Evet seni silememiştim ama bittiğinden emindim. Sonu gelmişti bu hikâyenin ve ne olursa olsun devam etmeyecekti. Çünkü beni böyle umutsuzluğa sürükleyen birisi artık hiçbir şeyi hak etmezdi. Ne olursa olsun.
+ Ama o "ne olursa olsun"un içine duygularımın karşılık bulması ihtimalini katmamıştım. Nasıl katabilirdim ki? İmkansızın ötesinde bir şeydi bu benim için. Seven böyle yapmaz demiştim kendime kaç kez. Böyle öğrenmiştim ben. Ama öyle olmayabileceğini de yine seninle öğrendim.
 
-Ama o "ne olursa olsun"un içine duygularımın karşılık bulması ihtimalini katmamıştım. Nasıl katabilirdim ki? İmkansızın ötesinde bir şeydi bu benim için. Seven böyle yapmaz demiştim kendime kaç kez. Böyle öğrenmiştim ben. Ama öyle olmayabileceğini de yine seninle öğrendim.
+ Bir anda geldin ve beni tekrar karman çorman ettin. O geceyi nasıl geçirdim, ne kadar düşündüm ya da düşünemedim, bilmiyorum. Sadece hem çok iğrenç, hem de çok mutlu hissediyordum. Aklım ve kalbim savaş içindeydi. Biri yapmamalısın diye haykırıyordu, biri yapmalısın diye. Sonuç olarak, kalbim savaşı kazandı. Aslında oldukça kolaydı onun için. Çünkü ben senden hiç vazgeçememiştim ki. Ne kadar bunun farkında olmasam da, bundan kaçsam da bu böyleydi. Ve beni sevdiğini söylediğin an, kaçtığım her şey, bütün gerçekler bir anda yüzüme çarptı sanki. O ihtimal... Mutlu olabileceğimiz ihtimali. Hayatım boyunca kurduğum o en büyük hayalin ihtimali. O ihtimal her şeydi. Ve ben bunu elimin tersiyle itemezdim. Asla yapamazdım. Sen ihtimalini denemeden bırakamazdım.
 
-Bir anda geldin ve beni tekrar karman çorman ettin. O geceyi nasıl geçirdim, ne kadar düşündüm ya da düşünemedim, bilmiyorum. Sadece hem çok iğrenç, hem de çok mutlu hissediyordum. Aklım ve kalbim savaş içindeydi. Biri yapmamalısın diye haykırıyordu, biri yapmalısın diye. Sonuç olarak, kalbim savaşı kazandı. Aslında oldukça kolaydı onun için. Çünkü ben senden hiç vazgeçememiştim ki. Ne kadar bunun farkında olmasam da, bundan kaçsam da bu böyleydi. Ve beni sevdiğini söylediğin an, kaçtığım her şey, bütün gerçekler bir anda yüzüme çarptı sanki. O ihtimal... Mutlu olabileceğimiz ihtimali. Hayatım boyunca kurduğum o en büyük hayalin ihtimali. O ihtimal her şeydi. Ve ben bunu elimin tersiyle itemezdim. Asla yapamazdım. Sen ihtimalini denemeden bırakamazdım.
+ Daha o gece, hatta biz konuştuğumuz esnada ben kararımı vermiştim aslında. Ama bir gün daha düşünüp aklıma da bunu kabul ettirmeyi istedim sadece. İşe yaradı. 
 
-Daha o gece, hatta biz konuştuğumuz esnada ben kararımı vermiştim aslında. Ama bir gün daha düşünüp aklıma da bunu kabul ettirmeyi istedim sadece. İşe yaradı. 
+ Ve şimdi, beraber ilk 14 Şubat'ımızı geçiriyoruz işte. Hâlâ her şey çok garip değil mi? Çok garip. Deli gibi arzuladığım o insan beni seviyor. Mucizevi bir şey gibi geliyor bana hâlâ. Ama gerçek. Gerçekten benimlesin. Sevdiğimsin. Sevenimsin. Sevgilimsin.
 
-Ve şimdi, beraber ilk 14 Şubat'ımızı geçiriyoruz işte. Hâlâ her şey çok garip değil mi? Çok garip. Deli gibi arzuladığım o insan beni seviyor. Mucizevi bir şey gibi geliyor bana hâlâ. Ama gerçek. Gerçekten benimlesin. Sevdiğimsin. Sevenimsin. Sevgilimsin.
-
-Sana bunları anlatıyorum çünkü yaşanmamış gibi geçip gitmesini istemiyorum. Çünkü benim için ne kadar önemli ve zor bir süreçtiyse senin için de o kadar önemli ve zor olduğunu öğrendim. Kötü de olsa iyi de olsa yaşanan her şey önemli, değerli. Bizi büyütüp birbirimize böyle sıkı bağlayan şeyler bunlar. Seninle ilgili olan en ufak şey bile sonsuz değerli benim için. O yüzden unutmak ve yaşanmamışlar gibi davranmak istemiyorum. Hissettiğimiz bütün her şeyi hatırlayarak birbirimize daha çok tutunalım istiyorum.
+ Sana bunları anlatıyorum çünkü yaşanmamış gibi geçip gitmesini istemiyorum. Çünkü benim için ne kadar önemli ve zor bir süreçtiyse senin için de o kadar önemli ve zor olduğunu öğrendim. Kötü de olsa iyi de olsa yaşanan her şey önemli, değerli. Bizi büyütüp birbirimize böyle sıkı bağlayan şeyler bunlar. Seninle ilgili olan en ufak şey bile sonsuz değerli benim için. O yüzden unutmak ve yaşanmamışlar gibi davranmak istemiyorum. Hissettiğimiz bütün her şeyi hatırlayarak birbirimize daha çok tutunalım istiyorum.
 
 
-Deniz'im,
+ Deniz'im,
 
-Seni çok seviyorum. Herkesten, her şeyden çok. Öyle çok ki içim içime sığmıyor seni düşününce. Sevgim içimden taşacakmış gibi hissediyorum. 
-Yüzün gözümün önüne geldiği her an boynuna atlayıp saatlerce sarılmak istiyorum sana. Yine de doymam gibi geliyor. O kadar seviyorum.
+ Seni çok seviyorum. Herkesten, her şeyden çok. Öyle çok ki içim içime sığmıyor seni düşününce. Sevgim içimden taşacakmış gibi hissediyorum. Yüzün gözümün önüne geldiği her an boynuna atlayıp saatlerce sarılmak istiyorum sana. Yine de doymam gibi geliyor. O kadar seviyorum.
 
-Doğum günün kutlu olsun sevgilim. İyi ki doğmuşsun, iyi ki benimlesin. Bunlara ne kadar iyi ki dersem diyeyim yetmez ama iyi ki. İyi ki o gün o duvara o ismi yazmışım. İyi ki o gün o yazıyı görmüşsün. İyi ki seni sevmişim. İyi ki beni sevmişsin.
+ Doğum günün kutlu olsun sevgilim. İyi ki doğmuşsun, iyi ki benimlesin. Bunlara ne kadar iyi ki dersem diyeyim yetmez ama iyi ki. İyi ki o gün o duvara o ismi yazmışım. İyi ki o gün o yazıyı görmüşsün. İyi ki seni sevmişim. İyi ki beni sevmişsin.
 
-İyi ki varsın.
+ İyi ki varsın.
 
                                     
-                                        — Seni sonsuz seven sevgilin."></p>
+                                        — Seni sonsuz seven sevgilin.
+  </p>
 </div>
 
 <script>
@@ -199,32 +200,9 @@ function check() {
   if (password.value === "03.05.2023") {
     document.getElementById("lock").classList.remove("active");
     document.getElementById("note").classList.add("active");
-    startTyping();
   } else {
-    alert("Bir daha düşün 💭");
+    alert("Gerçekten bulamadın mı ?! 🙄");
   }
-}
-
-function startTyping() {
-  const els = document.querySelectorAll(".typewriter");
-  let delay = 0;
-
-  els.forEach(el => {
-    const text = el.dataset.text;
-    el.innerHTML = "<span></span>";
-    const span = el.querySelector("span");
-    let i = 0;
-
-    setTimeout(() => {
-      const interval = setInterval(() => {
-        span.textContent += text[i];
-        i++;
-        if (i >= text.length) clearInterval(interval);
-      }, 40);
-    }, delay);
-
-    delay += text.length * 40 + 400;
-  });
 }
 </script>
 
