@@ -54,23 +54,29 @@
 
     /* Not alanı */
     .wrapper {
-      display: none;
-      width: 100%;
-      justify-content: center;
-      padding: 60px 16px;
-    }
+  display: none;
+  width: 100%;
+  padding: 60px 16px;
 
+  display: flex;
+  justify-content: center; /* yatay ortalama */
+    }
+    
     .paper {
-      width: 100%;
-      max-width: 700px;
-      background-image: url("paper.jpg");
-      background-repeat: repeat-y;
-      background-size: 100% auto;
-      padding: 60px 50px;
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.15),
-        inset 0 0 30px rgba(0,0,0,0.05);
-      border-radius: 6px;
+  max-width: 700px;
+  margin: 0 auto;
+  background-image: url("paper.jpg");
+  background-repeat: repeat-y;
+  background-size: 100% 32px;
+
+  font-family: "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 32px;
+
+  padding: 58px 50px 60px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.15),
+    inset 0 0 30px rgba(0,0,0,0.05);
     }
 
     .paper p {
