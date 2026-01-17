@@ -144,6 +144,31 @@
       50%  { transform: translateY(-10px) scale(1.1); opacity: 1; }
       100% { transform: translateY(0) scale(1); opacity: 0.7; }
     }
+      .note-image {
+  display: block;
+  max-width: 100%;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    /* 🎁 SPOTIFY HEDİYE BUTONU */
+.gift-button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #f4a3b5, #e77c98);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gift-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
   </style>
 </head>
 
@@ -171,6 +196,8 @@
   <!-- 📄 NOT -->
   <div class="note-wrapper" id="noteWrapper">
     <div class="paper">
+      <img src="rapunzel1.jpg" alt="rapunzel ve eugene" class="note-image">
+      <img src="süs.png" alt="metin başı süslemesi" class="note-image">
       <p>
 Hayatımın anlamı, biricik sevgilime;
       </p>
@@ -256,10 +283,21 @@ Doğum günün kutlu olsun sevgilim. İyi ki doğmuşsun, iyi ki benimlesin. Bun
       <p>
                                                       — Seni sonsuz seven sevgilin.   
       </p>
+      <img src="rapunzel2.jpg" alt="rapunzel ve eugene 2" class="note-image">
+      <img src="rapunzel3.jpg" alt="rapunzel ve eugene 3" class="note-image">
       <p>
-        https://open.spotify.com/playlist/1lC3oWmSeq442CouFSLPYF?si=FbeKI7PARVe4obCOpbJ2rA&pt=b99af1785ef6a4f3e6ae4c370fe47b00&pi=e5T098vFS4OpB
+        
       </p><!-- NOT METNİN BURADA, HİÇ DOKUNMADIM -->
-      <!-- (senin gönderdiğin metnin tamamı aynen duruyor) -->
+    <!-- (senin gönderdiğin metnin tamamı aynen duruyor) -->
+      <p style="text-align: center; margin-top: 40px;">
+  <a 
+    href="https://open.spotify.com/playlist/1lC3oWmSeq442CouFSLPYF?si=owCibQotR-SdFyXj9Aw1vw&pt=3ea9f3e24a9fc678cd86bf84daffd0fb&pi=iLQKmXvdS6m8m"
+    class="gift-button"
+    target="_blank"
+  >
+    🎁 ufak bir hediye daha 🤭
+  </a>
+      </p>
     </div>
   </div>
 
