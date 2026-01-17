@@ -169,6 +169,10 @@
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.25);
 }
+    .no-shadow {
+  box-shadow: none !important;
+  border-radius: 0;
+    }
   </style>
 </head>
 
@@ -197,7 +201,7 @@
   <div class="note-wrapper" id="noteWrapper">
     <div class="paper">
       <img src="rapunzel1.jpg" alt="rapunzel ve eugene" class="note-image">
-      <img src="süs.png" alt="metin başı süslemesi" class="note-image">
+      <img src="süs.png" class="note-image no-shadow" alt="metin süslemesi">
       <p>
 Hayatımın anlamı, biricik sevgilime;
       </p>
